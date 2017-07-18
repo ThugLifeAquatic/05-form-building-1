@@ -17,18 +17,17 @@
   <link>
   <!-- TODO: We want our new article form to be able to display a preview of the article that is being entered. Thus, we need code here that will recreate the same structure of our other articles. What do you think we need to add here? -->
   <script type="text/x-handlebars-template" id="article-template">
-    <article class="">
+    <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
       <header>
         <h1>{{ title }}</h1>
-        <div class="">
-          By <address class="">
+        <div class="byline">
+          By <address>
             <a href="{{authorUrl}}">{{ author }}</a>
           </address> {{ publishStatus }}
         </div>
       </header>
-      <section>
-        {{ body }}
-      </section>
+      <section class="article-body">{{{body}}}</section>
+      <a href="#" class="read-on">Read on &rarr;</a>
     </article>
   </script>
 </head>
@@ -63,21 +62,21 @@
                    6. Some way to know if this article is a draft or is published -->
       <form class="" id="new-form" action="index.html" method="post">
         <label for="title">Title
-            </label>
         <input type="text" id="title" name="title" placeholder="Title" required>
         <textarea name="body" id="body" rows="8" cols="80"></textarea>
+      </label>
         <label for="">Author
+          <input type="text" id="author">
             </label>
-        <input type="text" id="author">
         <label for="">Link
+          <input type="text" id="authorUrl">
             </label>
-        <input type="text" id="authorUrl">
         <label for="">Category
+          <input type="text" id="category">
             </label>
-        <input type="text" id="category">
-        <label for="">Published
-            </label>
-        <input type="checkbox" id="publishedOn">
+        <label for="">PublishedOn
+          <input type="checkbox" id="publishedOn">
+        </label>
       </form>
     </section>
 
